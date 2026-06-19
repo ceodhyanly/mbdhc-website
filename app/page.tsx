@@ -365,22 +365,13 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 1, background: 'var(--border)', marginBottom: 64 }}>
             {institutionalPartners.map(inst => (
               <div key={inst.name} className="hover-cell" style={{ background: 'var(--surface)', padding: '40px 36px', display: 'flex', flexDirection: 'column' }}>
-                <div style={{
-                  background: '#fff',
-                  borderRadius: 6,
-                  padding: '16px 20px',
-                  marginBottom: 24,
-                  display: 'flex',
-                  alignItems: 'center',
-                  height: 68,
-                  overflow: 'hidden',
-                }}>
+                <div style={{ marginBottom: 28, height: 96, display: 'flex', alignItems: 'center' }}>
                   <Image
                     src={inst.logo}
                     alt={inst.logoAlt}
-                    width={280}
-                    height={50}
-                    style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'left center' }}
+                    width={320}
+                    height={90}
+                    style={{ width: 'auto', height: '100%', maxWidth: '100%', objectFit: 'contain', objectPosition: 'left center' }}
                     unoptimized
                   />
                 </div>
@@ -398,22 +389,19 @@ export default function Home() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
               {speakerInstitutions.map(si => (
                 <div key={si.name} style={{
-                  background: '#fff',
-                  borderRadius: 6,
-                  padding: '12px 20px',
-                  height: 56,
+                  height: 80,
                   display: 'flex',
                   alignItems: 'center',
                   flex: '1 1 180px',
-                  maxWidth: 260,
-                  overflow: 'hidden',
+                  maxWidth: 280,
+                  padding: '4px 0',
                 }}>
                   <Image
                     src={si.logo}
                     alt={si.alt}
-                    width={220}
-                    height={38}
-                    style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'left center' }}
+                    width={260}
+                    height={72}
+                    style={{ width: 'auto', height: '100%', maxWidth: '100%', objectFit: 'contain', objectPosition: 'left center' }}
                     unoptimized
                   />
                 </div>
@@ -429,24 +417,39 @@ export default function Home() {
           <p className="label" style={{ marginBottom: 20 }}>Featured at MBDHC 2026</p>
           <h2 className="headline" style={{ marginBottom: 48 }}>Book Launches</h2>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: 24 }}>
             {[
               {
                 title: 'Meta-Meditation for Mental Health Routage',
                 author: 'Steve Haberlin',
                 note: 'Day 1 Launch — October 22, 2026',
+                cover: '/images/Meta-MeditationforMentalHealth.png',
               },
               {
                 title: 'Sūtra to Sensor: HealthTech in IKS Blue One Inc.',
                 author: 'Satyam Tiwari',
                 note: 'Day 1 Launch — October 22, 2026',
+                cover: '/images/sutratosensorbookcover.png',
               },
             ].map(book => (
-              <div key={book.title} className="card" style={{ padding: '36px 40px' }}>
-                <div style={{ width: 3, height: 40, background: 'var(--teal)', borderRadius: 2, marginBottom: 24 }} />
-                <h3 style={{ fontSize: 18, fontWeight: 700, lineHeight: 1.4, letterSpacing: '-0.015em', color: 'var(--foreground)', marginBottom: 12 }}>{book.title}</h3>
-                <p style={{ fontSize: 14, color: 'var(--muted-light)', marginBottom: 20 }}>by {book.author}</p>
-                <span className="chip">{book.note}</span>
+              <div key={book.title} className="card" style={{ padding: '28px 32px', display: 'flex', gap: 28, alignItems: 'flex-start' }}>
+                {/* Book cover */}
+                <div style={{ flexShrink: 0, width: 112, borderRadius: 4, overflow: 'hidden', boxShadow: '4px 6px 20px rgba(26,12,8,0.18)' }}>
+                  <Image
+                    src={book.cover}
+                    alt={book.title + ' cover'}
+                    width={112}
+                    height={160}
+                    style={{ width: '100%', height: 'auto', display: 'block' }}
+                    unoptimized
+                  />
+                </div>
+                {/* Book info */}
+                <div style={{ flex: 1, paddingTop: 4 }}>
+                  <span className="chip chip-teal" style={{ marginBottom: 16, fontSize: 11 }}>{book.note}</span>
+                  <h3 style={{ fontSize: 17, fontWeight: 700, lineHeight: 1.4, letterSpacing: '-0.015em', color: 'var(--foreground)', marginBottom: 10, marginTop: 12 }}>{book.title}</h3>
+                  <p style={{ fontSize: 14, color: 'var(--muted-light)' }}>by {book.author}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -479,8 +482,8 @@ export default function Home() {
               },
             ].map(p => (
               <div key={p.name} className="card" style={{ padding: '32px 36px' }}>
-                <div style={{ background: '#fff', borderRadius: 6, padding: '12px 16px', marginBottom: 20, height: 56, display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
-                  <Image src={p.logo} alt={p.logoAlt} width={200} height={40} style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'left center' }} unoptimized />
+                <div style={{ marginBottom: 24, height: 80, display: 'flex', alignItems: 'center' }}>
+                  <Image src={p.logo} alt={p.logoAlt} width={240} height={76} style={{ width: 'auto', height: '100%', maxWidth: '100%', objectFit: 'contain', objectPosition: 'left center' }} unoptimized />
                 </div>
                 <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--teal)', marginBottom: 14 }}>{p.role}</p>
                 <h3 style={{ fontSize: 16, fontWeight: 750, color: 'var(--foreground)', marginBottom: 4, letterSpacing: '-0.01em' }}>{p.name}</h3>
