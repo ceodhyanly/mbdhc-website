@@ -266,27 +266,21 @@ export default function Home() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))', gap: 1, background: 'var(--border)' }}>
-            {pillars.map(p => {
-              const Icon = p.Icon
-              return (
-                <div key={p.n} className="hover-cell" style={{ background: 'var(--surface)', padding: '40px 36px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: 'var(--muted)', textTransform: 'uppercase' }}>Pillar {p.n}</span>
-                    <span style={{ color: 'var(--teal)' }}><Icon /></span>
-                  </div>
-                  <h3 style={{ fontSize: 17, fontWeight: 700, lineHeight: 1.35, letterSpacing: '-0.01em', color: 'var(--foreground)', marginBottom: 20 }}>{p.title}</h3>
-                  <ul style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-                    {p.areas.map(a => (
-                      <li key={a} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
-                        <span style={{ marginTop: 6, width: 4, height: 4, borderRadius: '50%', background: 'var(--teal)', flexShrink: 0 }} />
-                        <span style={{ fontSize: 13, color: 'var(--muted-light)', lineHeight: 1.55 }}>{a}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            })}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))', gap: 16 }}>
+            {pillars.map(p => (
+              <div key={p.n} style={{ background: 'var(--surface-3)', padding: '36px 32px', borderRadius: 8, borderLeft: '3px solid var(--teal)' }}>
+                <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: 'var(--muted)', textTransform: 'uppercase', display: 'block', marginBottom: 14 }}>Pillar {p.n}</span>
+                <h3 style={{ fontSize: 17, fontWeight: 700, lineHeight: 1.35, letterSpacing: '-0.01em', color: 'var(--foreground)', marginBottom: 20 }}>{p.title}</h3>
+                <ul style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+                  {p.areas.map(a => (
+                    <li key={a} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                      <span style={{ marginTop: 6, width: 4, height: 4, borderRadius: '50%', background: 'var(--teal)', flexShrink: 0 }} />
+                      <span style={{ fontSize: 13, color: 'var(--muted-light)', lineHeight: 1.55 }}>{a}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
