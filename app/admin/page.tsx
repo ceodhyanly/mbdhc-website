@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/db'
+import type { User } from '@prisma/client'
 
 const ADMIN_KEY = process.env.ADMIN_KEY ?? 'mbdhc-admin-2026'
 
@@ -107,7 +108,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
                 </tr>
               </thead>
               <tbody>
-                {users.map((u, i) => (
+                {users.map((u: User, i: number) => (
                   <tr key={u.id} style={{ borderBottom: '1px solid var(--border)' }}>
                     <td style={{ padding: '14px 16px', color: 'var(--muted)', fontVariantNumeric: 'tabular-nums' }}>{i + 1}</td>
                     <td style={{ padding: '14px 16px', fontWeight: 600, color: 'var(--foreground)', whiteSpace: 'nowrap' }}>{u.firstName} {u.lastName}</td>
